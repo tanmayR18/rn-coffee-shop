@@ -200,7 +200,11 @@ const HomeScreen = ({navigation}: any) => {
             return (
               <TouchableOpacity
                 onPress={() => {
-                  navigation.push('Details');
+                    navigation.push('Details', {
+                        index: item.index,
+                        id: item.id,
+                        type: item.type,
+                      });
                 }}
                 key={item.id}>
                 <CoffeeCard
@@ -235,7 +239,11 @@ const HomeScreen = ({navigation}: any) => {
             return (
               <TouchableOpacity
                 onPress={() => {
-                  navigation.push('Details');
+                  navigation.push('Details', {
+                    index: item.index,
+                    id: item.id,
+                    type: item.type,
+                  });
                 }}
                 key={item.id}>
                 <CoffeeCard
