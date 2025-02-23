@@ -24,7 +24,7 @@ const PaymentFooter = ({price, buttonPressHandler, buttonTitle}: Props) => {
     <View style={styles.PriceFooter}>
       <View style={styles.PriceContainer}>
         <Text style={styles.PriceTitle}>Price</Text>
-        <Text style={styles.PriceText}>{price.price}</Text>
+        <Text style={styles.PriceText}>{price.currency}<Text style={styles.Price}>{price.price}</Text></Text>
       </View>
       <TouchableOpacity onPress={() => buttonPressHandler()} style={styles.PayButton}>
         <Text style={styles.ButtonText}>{buttonTitle}</Text>
