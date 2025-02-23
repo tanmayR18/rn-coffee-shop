@@ -31,6 +31,16 @@ const CartScreen = ({navigation}) => {
     navigation.navigate('Payment');
   };
 
+  const incrementCartItemQuantityHandler = (id: string, size: string) => {
+    incrementCartItemQuantity(id, size);
+    calculateCartPrice();
+  };
+
+  const decrementCartItemQuantityHandler = (id: string, size: string) => {
+    decrementCartItemQuantity(id, size);
+    calculateCartPrice();
+  };
+
   return (
     <View style={styles.ScreenContainer}>
       <StatusBar backgroundColor={COLORS.primaryBlackHex} />
@@ -47,18 +57,30 @@ const CartScreen = ({navigation}) => {
             ) : (
               <View style={styles.ListItemContainer}>
                 {CartList.map((data: any) => (
-                  <TouchableOpacity onPress={() => {}} key={data.id}>
+                  <TouchableOpacity
+                    onPress={() => {
+                      navigation.push('Details', {
+                        index: data.index,
+                        id: data.id,
+                        type: data.type,
+                      });
+                    }}
+                    key={data.id}>
                     <CartItem
                       id={data.id}
                       title={data.title}
                       name={data.name}
                       imagelink_square={data.imagelink_square}
                       special_ingredient={data.special_ingredient}
-                      roaster={data.roasted}
+                      roasted={data.roasted}
                       prices={data.prices}
                       type={data.type}
-                      incrementCartItemQuantityHandler={() => {}}
-                      decrementCartItemQuantityHandler={() => {}}
+                      incrementCartItemQuantityHandler={
+                        incrementCartItemQuantityHandler
+                      }
+                      decrementCartItemQuantityHandler={
+                        decrementCartItemQuantityHandler
+                      }
                     />
                   </TouchableOpacity>
                 ))}
