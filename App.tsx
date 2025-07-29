@@ -7,14 +7,14 @@ import TabNavigator from './src/navigators/TabNavigator';
 import DetailsScreen from './src/screens/DetailsScreen';
 import PaymentScreen from './src/screens/PaymentScreen';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import SplashScreen from 'react-native-splash-screen';
+// import SplashScreen from 'react-native-splash-screen';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
-  useEffect(() => {
-    SplashScreen.hide();
-  }, []);
+//   useEffect(() => {
+//     SplashScreen.hide();
+//   }, []);
   return (
     <GestureHandlerRootView>
       <NavigationContainer>

@@ -19,3 +19,12 @@ buildscript {
 }
 
 apply plugin: "com.facebook.react.rootproject"
+
+// ✅ RESOLUTION STRATEGY (safe version)
+allprojects {
+    configurations.all {
+        resolutionStrategy {
+            force 'androidx.core:core:1.9.0'
+        }
+    }
+}
